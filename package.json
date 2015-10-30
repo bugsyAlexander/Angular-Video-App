@@ -2,7 +2,7 @@
   "name": "angular-video-app",
   "version": "1.0.0",
   "description": "Custom HTML5 Video Playback with AngularJS",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
