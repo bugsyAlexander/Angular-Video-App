@@ -113,3 +113,21 @@ body {
   left: -1000px;
   cursor: pointer;
 }
+
+/* Video options */
+#VideoOptions {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+}
+
+#VideoOptions h2 {
+  font-size: 1.4em;
+  color: #c3c3c3;
+}
+
+#VideoOptions li {
+  cursor: pointer;
+}

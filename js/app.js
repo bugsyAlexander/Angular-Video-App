@@ -15,6 +15,7 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
   $scope.vidWidthCenter = -1000;
   // Thumb Scrubber
   $scope.isDragging = false;
+  $scope.showOptions = false;
 
   $interval(function () {
     if(!$scope.isDragging){
@@ -89,6 +90,15 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
     var s = Math.round($event.pageX / w * d - 3);
     $scope.videoDisplay.currentTime = s;
   }
+
+  // toggle showOptions
+  $scope.toggleDetails = function() {
+    if($scope.showOptions){
+      $scope.showOptions = false;
+    } else {
+        $scope.showOptions = true;
+    }
+  } // toggleDetails
 
   // Playback and mute controls
   $scope.togglePlay = function () {
