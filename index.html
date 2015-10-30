@@ -26,13 +26,13 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="embed-responsive embed-responsive-16by9">
-    <video width="100%" height="100%" src="video/Acqua-Couture.mp4" autobuffer autoloop loop controls></video>
+    <video id="videoElement" width="100%" height="100%" src="video/Acqua-Couture.mp4"></video>
   </div>
 
   <div class="btn-group btn-group-justified" role="group">
-    <a class="btn btn-default">Play</a>
-    <a class="btn btn-default">Pause</a>
-    <a class="btn btn-default">Stop</a>
+    <a onclick="playVideo()" class="btn btn-default">Play</a>
+    <a onclick="pauseVideo()" class="btn btn-default">Pause</a>
+    <a onclick="stopVideo()" class="btn btn-default">Stop</a>
   </div>
 
 
@@ -40,6 +40,24 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    var doc = document,
+        vid = doc.getElementById("videoElement");
+
+    function playVideo() {
+      vid.play();
+    }
+
+    function pauseVideo() {
+      vid.pause();
+    }
+
+    function stopVideo() {
+      vid.pause();
+      vid.currentTime = 0;
+    }
+  </script>
 
   <!-- End Document
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
