@@ -1,4 +1,4 @@
-var videoApp = angular.module('videoApp', []);
+var videoApp = angular.module('videoApp', ['ngAnimate']);
 
 videoApp.controller('VideoController', ['$scope', '$window', '$interval', '$http', function($scope, $window, $interval, $http) {
   $scope.videoDisplay = document.getElementById('videoElement');
@@ -89,7 +89,7 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', '$http
   };
 
   // video scrubber
-  $scope.videoSeek = function($event) {
+  $scope.videoSeek = function ($event) {
     var w = document.getElementById('progressMeterFull').offsetWidth;
     var d = $scope.videoDisplay.duration;
     var s = Math.round($event.pageX / w * d - 3);
@@ -97,16 +97,16 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', '$http
   }
 
   // toggle showOptions
-  $scope.toggleDetails = function() {
+  $scope.toggleDetails = function () {
     if($scope.showOptions){
       $scope.showOptions = false;
     } else {
-        $scope.showOptions = true;
+      $scope.showOptions = true;
     }
   } // toggleDetails
 
   // video playlist
-  $scope.videoSelected = function(i) {
+  $scope.videoSelected = function (i) {
     $scope.titleDisplay = $scope.playlist[i].title;
     $scope.videoDescription = $scope.playlist[i].description;
     $scope.videoSource = $scope.playlist[i].path;
