@@ -32,7 +32,7 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <section class="wrapper">
-    <div id="fullPlayer" class="unselectable ng-cloak">
+    <div id="fullPlayer" class="unselectable ng-cloak" ng-mousemove="mouseMoving($event)" ng-mouseup="dragStop($event)">
       <div class="embed-responsive embed-responsive-16by9">
         <video id="videoElement" ng-click="togglePlay()" width="100%" height="100%" src="{{videoSource}}"></video>
         <div id="bigPlayButton" ng-click="togglePlay()" ng-hide="videoPlaying" class="well" style="margin-top:{{vidHeightCenter}}px;margin-left:{{vidWidthCenter}}px;"><span class="glyphicon glyphicon-play"></span></div>
@@ -44,6 +44,9 @@
         <div id="progressMeter" ng-click="videoSeek($event)" style="width:{{scrubLeft+7}}px"></div>
       </div>
       <!-- End #progressMeterFull -->
+
+      <div id="thumbScrubber" style="top:{{scrubTop}}px;left:{{scrubLeft-1}}px;" ng-mousedown="dragStart($event)"></div>
+      <!-- End #thubScrubber -->
 
       <div id="playerToolBar">
         <a id="playBtn" class="btn btn-default" ng-click="togglePlay()"><span class="glyphicon glyphicon-play"></span></a>

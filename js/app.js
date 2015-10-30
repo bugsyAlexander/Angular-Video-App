@@ -8,20 +8,26 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
   $scope.videoPlaying = false;
   $scope.currentTime;
   $scope.totalTime;
-  // Progress bar
+  // Progress Bar
   $scope.scrubTop = -1000;
   $scope.scrubLeft = -1000;
   $scope.vidHeightCenter = -1000;
   $scope.vidWidthCenter = -1000;
+  // Thumb Scrubber
+  $scope.isDragging = false;
 
-  $interval(function(){
+  $interval(function () {
+    if(!$scope.isDragging){
       var t = $scope.videoDisplay.currentTime;
       var d = $scope.videoDisplay.duration;
       var w = t / d * 100;
       var p = document.getElementById('progressMeterFull').offsetLeft + document.getElementById('progressMeterFull').offsetWidth;
       $scope.scrubLeft = (t / d * p) - 7;
-      $scope.updateLayout();
-  },100);
+    } else {
+      $scope.scrubLeft = document.getElementById('thumbScrubber').offsetLeft;
+    }
+    $scope.updateLayout();
+  }, 100);
 
   // Time duration
   $scope.initPlayer = function () {
@@ -49,21 +55,39 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
     $scope.totalTime = e.target.duration;
   };
 
-  $scope.updateLayout = function() {
-      $scope.scrubTop = document.getElementById('progressMeterFull').offsetTop - 2;
-      $scope.vidHeightCenter =  $scope.videoDisplay.offsetHeight / 2 - 50;
-      $scope.vidWidthCenter = $scope.videoDisplay.offsetWidth / 2 - 50;
-      if(!$scope.$$phase) {
-          $scope.$apply();
-      }
+  $scope.updateLayout = function () {
+    $scope.scrubTop = document.getElementById('progressMeterFull').offsetTop - 2;
+    $scope.vidHeightCenter =  $scope.videoDisplay.offsetHeight / 2 - 50;
+    $scope.vidWidthCenter = $scope.videoDisplay.offsetWidth / 2 - 50;
+    if(!$scope.$$phase) {
+        $scope.$apply();
+    }
   }
+
+  // thumb scrubber
+  $scope.mouseMoving = function ($event) {
+    if($scope.isDragging){
+      $("#thumbScrubber").offset({left:$event.pageX});
+    }
+  };
+      
+  $scope.dragStart = function ($event) {
+    $scope.isDragging = true;
+  };
+
+  $scope.dragStop = function ($event) {
+    if($scope.isDragging){
+      $scope.videoSeek($event);
+      $scope.isDragging = false;
+    }
+  };
 
   // video scrubber
   $scope.videoSeek = function($event) {
-      var w = document.getElementById('progressMeterFull').offsetWidth;
-      var d = $scope.videoDisplay.duration;
-      var s = Math.round($event.pageX / w * d);
-      $scope.videoDisplay.currentTime = s;
+    var w = document.getElementById('progressMeterFull').offsetWidth;
+    var d = $scope.videoDisplay.duration;
+    var s = Math.round($event.pageX / w * d - 3);
+    $scope.videoDisplay.currentTime = s;
   }
 
   // Playback and mute controls
