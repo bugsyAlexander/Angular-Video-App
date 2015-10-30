@@ -1,6 +1,6 @@
 var videoApp = angular.module('videoApp', []);
 
-videoApp.controller('VideoController', ['$scope', '$window', function($scope, $window) {
+videoApp.controller('VideoController', ['$scope', '$window', '$interval', function($scope, $window, $interval) {
   $scope.videoDisplay = document.getElementById('videoElement');
   $scope.videoSource = $window.videoSource;
   $scope.titleDisplay = $window.titleDisplay;
@@ -8,6 +8,10 @@ videoApp.controller('VideoController', ['$scope', '$window', function($scope, $w
   $scope.videoPlaying = false;
   $scope.currentTime;
   $scope.totalTime;
+
+  $interval(function(){
+      $scope.updateLayout();
+  },100);
 
   // Time duration
   $scope.initPlayer = function () {
@@ -19,7 +23,14 @@ videoApp.controller('VideoController', ['$scope', '$window', function($scope, $w
 
   $scope.updateTime = function (e) {
     $scope.currentTime = e.target.currentTime;
-    $scope.updateLayout();
+    // stop and rewind video
+    if($scope.currentTime == $scope.totalTime) {
+      $scope.videoDisplay.pause();
+      $scope.videoPlaying = false;
+      $scope.currentTime = 0;
+      $('#playBtn').children("span").toggleClass("glyphicon-play", true);
+      $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
+    }
   };
 
   $scope.updateData = function (e) {
@@ -62,3 +73,10 @@ videoApp.controller('VideoController', ['$scope', '$window', function($scope, $w
   $scope.initPlayer();
   
 }]);
+
+videoApp.filter('time', function() {
+    return function(seconds) {
+        var hh = Math.floor(seconds / 3600), mm = Math.floor(seconds / 60) % 60, ss = Math.floor(seconds) % 60;
+        return hh + ":" + (mm < 10 ? "0" : "") + mm + ":" + (ss < 10 ? "0" : "") + ss;
+    };
+});

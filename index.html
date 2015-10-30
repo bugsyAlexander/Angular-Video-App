@@ -43,7 +43,7 @@
       <div id="playerToolBar">
         <a id="playBtn" class="btn btn-default" ng-click="togglePlay()"><span class="glyphicon glyphicon-play"></span></a>
         <a id="muteBtn" class="btn btn-default" ng-click="toggleMute()"><span class="glyphicon glyphicon-volume-up"></span></a>
-      <span id="videoTime">{{currentTime}} / {{totalTime}}</span>
+      <span id="videoTime">{{ currentTime | time }} / {{ totalTime | time }}</span>
       </div>
     </div> <!-- End #fullPlayer -->
   </section>
