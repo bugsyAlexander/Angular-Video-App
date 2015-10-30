@@ -6,7 +6,33 @@ videoApp.controller('VideoController', ['$scope', '$window', function($scope, $w
   $scope.titleDisplay = $window.titleDisplay;
   $scope.videoDescription = $window.videoDescription;
   $scope.videoPlaying = false;
+  $scope.currentTime;
+  $scope.totalTime;
 
+  // Time duration
+  $scope.initPlayer = function () {
+    $scope.currentTime = 0;
+    $scope.totalTime = 0;
+    $scope.videoDisplay.addEventListener('timeupdate', $scope.updateTime, true);
+    $scope.videoDisplay.addEventListener('loadedmetadata', $scope.updateData, true);
+  };
+
+  $scope.updateTime = function (e) {
+    $scope.currentTime = e.target.currentTime;
+    $scope.updateLayout();
+  };
+
+  $scope.updateData = function (e) {
+    $scope.totalTime = e.target.duration;
+  };
+
+  $scope.updateLayout = function () {
+    if (!$scope.$$phase) {
+      $scope.$apply();
+    }
+  };
+
+  // Playback and mute controls
   $scope.togglePlay = function () {
     if ($scope.videoDisplay.paused) {
       $scope.videoDisplay.play();
@@ -32,5 +58,7 @@ videoApp.controller('VideoController', ['$scope', '$window', function($scope, $w
       $('#muteBtn').children('span').toggleClass('glyphicon-volume-off', true);
     }
   }; // toggleMute
+
+  $scope.initPlayer();
   
 }]);
