@@ -1,3 +1,6 @@
+/* Base Styles */
+html {padding: 0; margin: 0; overflow: hidden}
+
 body {
   width: 93.333%;
   margin: 0 auto;
@@ -5,4 +8,76 @@ body {
 
 .wrapper {
   margin-top: 2em;
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* Video Display Styles */
+
+#videoDisplay {
+  background-color: #000;
+}
+
+/* Control Bar */
+#playerToolBar {
+  background-color: #464545;
+}
+
+#playerToolBar a {
+  font-size: 1.2em;
+  color: #B8B8BB
+}
+
+#playerToolBar .btn {
+  border-radius: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+#playerToolBar .glyphicon {
+  top: -1px;
+  left: -5px;
+}
+
+#playerToolBar .btn:focus {
+  border: none;
+  box-shadow: 0;
+  outline: 0 none;
+}
+
+#videoTime {
+  position: relative;
+  top: 3px;
+  left: 12px;
+  font-size: 1.1em;
+  color: #C0C0C0;
+}
+
+/* Overlays */
+#bigPlayButton {
+  background-color: rgba(0, 0, 0, 0.79);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  font-size: 3.2em;
+  cursor: pointer;
+  text-align: center;
+}
+
+#videoTitle {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 1.3em;
+  color: whitesmoke;
+  width: 100%;
+  margin: 5px;
+  margin-left: 10px;
+  text-shadow: 1px 1px #333333;
 }
