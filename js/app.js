@@ -32,15 +32,17 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
   };
 
   $scope.updateTime = function (e) {
-    $scope.currentTime = e.target.currentTime;
-    // stop and rewind video
-    if($scope.currentTime == $scope.totalTime) {
-      $scope.videoDisplay.pause();
-      $scope.videoPlaying = false;
-      $scope.currentTime = 0;
-      $('#playBtn').children("span").toggleClass("glyphicon-play", true);
-      $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
-    }
+    if(!$scope.videoDisplay.seeking){
+      $scope.currentTime = e.target.currentTime;
+        // stop and rewind video
+        if($scope.currentTime == $scope.totalTime) {
+          $scope.videoDisplay.pause();
+          $scope.videoPlaying = false;
+          $scope.currentTime = 0;
+          $('#playBtn').children("span").toggleClass("glyphicon-play", true);
+          $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
+      } // currentTime condition
+    } // seeking condition
   };
 
   $scope.updateData = function (e) {
@@ -54,6 +56,14 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
       if(!$scope.$$phase) {
           $scope.$apply();
       }
+  }
+
+  // video scrubber
+  $scope.videoSeek = function($event) {
+      var w = document.getElementById('progressMeterFull').offsetWidth;
+      var d = $scope.videoDisplay.duration;
+      var s = Math.round($event.pageX / w * d);
+      $scope.videoDisplay.currentTime = s;
   }
 
   // Playback and mute controls

@@ -40,8 +40,8 @@
       </div>
       <!-- End .embed-responsive -->
 
-      <div id="progressMeterFull">
-        <div id="progressMeter" style="width:{{scrubLeft+7}}px"></div>
+      <div id="progressMeterFull" ng-click="videoSeek($event)">
+        <div id="progressMeter" ng-click="videoSeek($event)" style="width:{{scrubLeft+7}}px"></div>
       </div>
       <!-- End #progressMeterFull -->
 
