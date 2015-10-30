@@ -48,7 +48,15 @@
                     <p>{{videoDescription}}</p>
                     <p><em>Duration: {{totalTime | time}}</em></p>
                 </div>
-                <div class="col-xs-6"></div>
+                <div class="col-xs-6">
+                  <ul class="list-group" ng-model="playlist">
+                    <h2>Playlist:</h2>
+                    <li class="list-group-item" ng-repeat="video in playlist" ng-click="videoSelected($index)">
+                      {{video.title}}
+                    </li>
+                  </ul>
+                </div>
+                <!-- End .col-xs-6 -->
             </div>
         </div>
       <!-- End #VideoOptions -->

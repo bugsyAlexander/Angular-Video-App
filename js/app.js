@@ -1,6 +1,6 @@
 var videoApp = angular.module('videoApp', []);
 
-videoApp.controller('VideoController', ['$scope', '$window', '$interval', function($scope, $window, $interval) {
+videoApp.controller('VideoController', ['$scope', '$window', '$interval', '$http', function($scope, $window, $interval, $http) {
   $scope.videoDisplay = document.getElementById('videoElement');
   $scope.videoSource = $window.videoSource;
   $scope.titleDisplay = $window.titleDisplay;
@@ -16,6 +16,11 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
   // Thumb Scrubber
   $scope.isDragging = false;
   $scope.showOptions = false;
+  $scope.playlist;
+
+  $http.get('data/playlist.json').success(function(data) {
+      $scope.playlist = data;
+  });
 
   $interval(function () {
     if(!$scope.isDragging){
@@ -99,6 +104,18 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
         $scope.showOptions = true;
     }
   } // toggleDetails
+
+  // video playlist
+  $scope.videoSelected = function(i) {
+    $scope.titleDisplay = $scope.playlist[i].title;
+    $scope.videoDescription = $scope.playlist[i].description;
+    $scope.videoSource = $scope.playlist[i].path;
+    $scope.videoDisplay.load($scope.videoSource);
+    $scope.videoPlaying = false;
+    $('#playBtn').children("span").toggleClass("glyphicon-play", true);
+    $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
+    $scope.showOptions = false;
+  }
 
   // Playback and mute controls
   $scope.togglePlay = function () {
