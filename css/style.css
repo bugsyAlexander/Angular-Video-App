@@ -1,15 +1,16 @@
 /* Base Styles */
-html {padding: 0; margin: 0; overflow: hidden}
+html {padding: 0; margin: 0; height: 100%;}
 
 body {
   padding: 0;
-  width: 93.333%;
-  margin: 0 auto;
+  min-height: 100vh;
 }
 
 .wrapper {
   position: relative;
-  margin-top: 2em;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 3.5rem;
 }
 
 .unselectable {
@@ -17,7 +18,8 @@ body {
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
-  user-select: none;
+  -ms-user-select: none;
+      user-select: none;
 }
 
 /* Video Display Styles */
@@ -97,9 +99,9 @@ body {
 #progressMeter {
   background-color: #5d1f1c;
   position: absolute;
-  top:0px;
-  left:0px;
-  width:0px;
+  top: 0px;
+  left: 0px;
+  width: 0px;
 }
 
 #thumbScrubber {
@@ -117,10 +119,10 @@ body {
 /* Video options */
 #VideoOptions {
   position:absolute;
-  top:0px;
-  left:0px;
-  width:100%;
-  height:100%;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 #VideoOptions h2 {
@@ -142,4 +144,89 @@ body {
     -webkit-animation: fadeOut 0.75s;
     animation: fadeOut 0.75s;
     display: block !important;
+}
+
+/* Base styles that apply to all menus */
+.menu-section {
+  padding-bottom: 2em;
+  width: 100%;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #000000;
+}
+
+.menu li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: .6em 1em;
+}
+
+.menu li a:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Styles for social media menu */
+
+/* Find src URL and add in correct social media icon. */
+.social-menu li a:before {
+    font-family: 'Fontawesome';
+    -webkit-font-smoothing: antialiased;
+    content: '\f08e';
+}
+
+.social-menu li a[href*="http://mynoralexander.com/"]::before { content: '\f015'; }
+.social-menu li a[href*="github.com"]::before { content: '\f09b'; }
+.social-menu li a[href*="linkedin.com"]::before { content: '\f0e1'; }
+.social-menu li a[href*="twitter.com"]::before { content: '\f099'; }
+
+/* Flexbox */
+.social-menu ul {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    font-size: 1.5em;
+}
+
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar */
 }
