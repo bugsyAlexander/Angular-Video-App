@@ -51,6 +51,7 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', '$http
           $scope.videoDisplay.pause();
           $scope.videoPlaying = false;
           $scope.currentTime = 0;
+          $scope.toggleDetails();
           $('#playBtn').children("span").toggleClass("glyphicon-play", true);
           $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
       } // currentTime condition
@@ -102,6 +103,8 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', '$http
       $scope.showOptions = false;
     } else {
       $scope.showOptions = true;
+      // pause backgroudn video on toggle
+      // $scope.togglePlay();
     }
   } // toggleDetails
 
