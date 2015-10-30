@@ -1,28 +1,33 @@
 [
 	{
-		"title":"Nata & Inna",
-		"path":"video/Nata-Inna.mp4", 
-        "description":"Published on Sep 11, 2015 - video, edit, color: Denis Musalimov"
+		"title" : "Nata & Inna",
+		"path" : "video/Nata-Inna.mp4", 
+    "description" : "Published on Sep 11, 2015 - video, edit, color: Denis Musalimov"
 	},
     {
-		"title":"BABAVIBE feat Superkung HD",
-		"path":"video/BABAVIBE.mp4", 
-        "description":"Published on Sep 7, 2015 #behindthescene shooting with @superkung at Sri panwa, Phuket / Thailand."
+		"title" : "BABAVIBE feat Superkung HD",
+		"path" : "video/BABAVIBE.mp4", 
+    "description" : "Published on Sep 7, 2015 #behindthescene shooting with @superkung at Sri panwa, Phuket / Thailand."
 	},
     {
-		"title":"Cindy Mello",
-		"path":"video/Cindy-Mello.mp4", 
-        "description":"Published on Sep 4, 2015 Filmed by: Tom Mitchell - http://tommitchellphoto.com/ Photographer, Filmmaker & Sound Designer Based in UK."
+		"title" : "Cindy Mello",
+		"path" : "video/Cindy-Mello.mp4", 
+    "description" : "Published on Sep 4, 2015 Filmed by: Tom Mitchell - http://tommitchellphoto.com/ Photographer, Filmmaker & Sound Designer Based in UK."
 	},
     {
-		"title":"We Are Handsome - Flux, In Bloom",
-		"path":"video/Handsome.mp4", 
-        "description":"Published on Aug 20, 2015 http://wearehandsome.com"
+		"title" : "We Are Handsome - Flux, In Bloom",
+		"path" : "video/Handsome.mp4", 
+    "description" : "Published on Aug 20, 2015 http://wearehandsome.com"
 	},
     {
-    "title":"BYRON - SWIM 2015/16 LOOKBOOK",
-    "path":"video/Byron-lookbook.mp4", 
-        "description":"Published on Jul 5, 2015 DESIGNER EMILY TAIT VIDEOGRAPHER MARCOS BELLO PHOTOGRAPHER CARLOS VELASCO"
+    "title" : "BYRON - SWIM 2015/16 LOOKBOOK",
+    "path" : "video/Byron-lookbook.mp4", 
+    "description" : "Published on Jul 5, 2015 DESIGNER EMILY TAIT VIDEOGRAPHER MARCOS BELLO PHOTOGRAPHER CARLOS VELASCO"
+  },
+  {
+    "title" : "Acqua Couture 2013 Collection Teaser",
+    "path" : "video/Acqua-Couture.mp4",
+    "description" : "Acqua Couture 2013 Collection Teaser. Featuring Supermodel Amanda Gift & Anna Madalyn."
   }
 ]
 
