@@ -117,6 +117,22 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
     }
   }; // toggleMute
 
+  // toggle fullscreen
+  $scope.toggleFullscreen = function() {
+    var v = $scope.videoDisplay;
+
+    if (v.requestFullscreen) {
+      v.requestFullscreen();
+    } else if (v.mozRequestFullScreen) {
+        v.mozRequestFullScreen();
+    } else if (v.webkitRequestFullscreen) {
+        v.webkitRequestFullscreen();
+    } else if (v.msRequestFullscreen) {
+        v.msRequestFullscreen();
+    }
+  } // toggleFullscreen
+
+
   $scope.initPlayer();
   
 }]);

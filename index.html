@@ -45,13 +45,14 @@
       </div>
       <!-- End #progressMeterFull -->
 
-      <div id="thumbScrubber" style="top:{{scrubTop}}px;left:{{scrubLeft-1}}px;" ng-mousedown="dragStart($event)"></div>
+      <div id="thumbScrubber" style="top:{{scrubTop}}px;left:{{scrubLeft+5}}px;" ng-mousedown="dragStart($event)"></div>
       <!-- End #thubScrubber -->
 
       <div id="playerToolBar">
         <a id="playBtn" class="btn btn-default" ng-click="togglePlay()"><span class="glyphicon glyphicon-play"></span></a>
         <a id="muteBtn" class="btn btn-default" ng-click="toggleMute()"><span class="glyphicon glyphicon-volume-up"></span></a>
-      <span id="videoTime">{{ currentTime | time }} / {{ totalTime | time }}</span>
+        <span id="videoTime">{{ currentTime | time }} / {{ totalTime | time }}</span>
+        <a id="fsBtn" ng-click="toggleFullscreen()" class="btn btn-default pull-right"><span class="glyphicon glyphicon-fullscreen"></span></a>
       </div>
       <!-- End #playerToolBar -->
 
