@@ -35,18 +35,25 @@
     <div id="fullPlayer" class="unselectable ng-cloak">
       <div class="embed-responsive embed-responsive-16by9">
         <video id="videoElement" ng-click="togglePlay()" width="100%" height="100%" src="{{videoSource}}"></video>
-        <div id="bigPlayButton" ng-click="togglePlay()" ng-hide="videoPlaying" class="well"><span class="glyphicon glyphicon-play"></span></div>
+        <div id="bigPlayButton" ng-click="togglePlay()" ng-hide="videoPlaying" class="well" style="margin-top:{{vidHeightCenter}}px;margin-left:{{vidWidthCenter}}px;"><span class="glyphicon glyphicon-play"></span></div>
         <div id="videoTitle" ng-hide="videoPlaying">{{titleDisplay}}</div>
       </div>
       <!-- End .embed-responsive -->
+
+      <div id="progressMeterFull">
+        <div id="progressMeter" style="width:{{scrubLeft+7}}px"></div>
+      </div>
+      <!-- End #progressMeterFull -->
 
       <div id="playerToolBar">
         <a id="playBtn" class="btn btn-default" ng-click="togglePlay()"><span class="glyphicon glyphicon-play"></span></a>
         <a id="muteBtn" class="btn btn-default" ng-click="toggleMute()"><span class="glyphicon glyphicon-volume-up"></span></a>
       <span id="videoTime">{{ currentTime | time }} / {{ totalTime | time }}</span>
       </div>
+      <!-- End #playerToolBar -->
+
     </div> <!-- End #fullPlayer -->
-  </section>
+  </section> <!-- End .wrapper -->
 
   <!-- JavaScript
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

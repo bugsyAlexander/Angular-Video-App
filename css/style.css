@@ -81,3 +81,21 @@ body {
   margin-left: 10px;
   text-shadow: 1px 1px #333333;
 }
+
+/* Progress Bar */
+#progressMeterFull, #progressMeter {
+    cursor: pointer;
+    height:11px;
+    margin:0;
+}
+#progressMeterFull {
+    background-color: #5e6368;
+    position: relative;
+}
+#progressMeter {
+    background-color: #5d1f1c;
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:0px;
+}

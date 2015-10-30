@@ -8,8 +8,18 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
   $scope.videoPlaying = false;
   $scope.currentTime;
   $scope.totalTime;
+  // Progress bar
+  $scope.scrubTop = -1000;
+  $scope.scrubLeft = -1000;
+  $scope.vidHeightCenter = -1000;
+  $scope.vidWidthCenter = -1000;
 
   $interval(function(){
+      var t = $scope.videoDisplay.currentTime;
+      var d = $scope.videoDisplay.duration;
+      var w = t / d * 100;
+      var p = document.getElementById('progressMeterFull').offsetLeft + document.getElementById('progressMeterFull').offsetWidth;
+      $scope.scrubLeft = (t / d * p) - 7;
       $scope.updateLayout();
   },100);
 
@@ -37,11 +47,14 @@ videoApp.controller('VideoController', ['$scope', '$window', '$interval', functi
     $scope.totalTime = e.target.duration;
   };
 
-  $scope.updateLayout = function () {
-    if (!$scope.$$phase) {
-      $scope.$apply();
-    }
-  };
+  $scope.updateLayout = function() {
+      $scope.scrubTop = document.getElementById('progressMeterFull').offsetTop - 2;
+      $scope.vidHeightCenter =  $scope.videoDisplay.offsetHeight / 2 - 50;
+      $scope.vidWidthCenter = $scope.videoDisplay.offsetWidth / 2 - 50;
+      if(!$scope.$$phase) {
+          $scope.$apply();
+      }
+  }
 
   // Playback and mute controls
   $scope.togglePlay = function () {
