@@ -12,13 +12,6 @@
     "video",
     "responsive"
   ],
-  "author": "Bugsy Alexander",
-  "license": "MIT",
-  "devDependencies": {
-    "angular": "^1.4.7",
-    "angular-animate": "^1.4.7",
-    "animate.css": "^3.4.0",
-    "bootstrap": "^3.3.5",
-    "jquery": "^2.1.4"
-  }
+  "author": "Mynor Bugsy Alexander",
+  "license": "MIT"
 }
