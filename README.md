@@ -15,3 +15,8 @@ Frameworks/Libraries:
 - Bootstrap
 - Bootswatch / Darkly Theme
 - Jquery
+
+![Angular Video App](img/app-screen-shot-1.png)
+![Angular Video App](img/app-screen-shot-2.png)
+![Angular Video App](img/app-screen-shot-3.png)
+![Angular Video App](img/app-screen-shot-4.png)
